@@ -7,9 +7,22 @@ const taskStore = useTaskStore()
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+const getLocalDateString = (date: Date): string => {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
+const parseLocalDate = (dateStr: string): Date => {
+  const [year, month, day] = dateStr.split('-').map(Number)
+  const date = new Date(year!, month! - 1, day!)
+  date.setHours(0, 0, 0, 0)
+  return date
+}
+
 const taskDates = computed(() => {
-  const today = new Date()
-  const todayStr = today.toISOString().split('T')[0]!
+  const todayStr = getLocalDateString(new Date())
   
   const dates = [...new Set(taskStore.allTasks.map(t => t.task_date).filter((date): date is string => date !== undefined))]
   
@@ -22,8 +35,7 @@ const taskDates = computed(() => {
 })
 
 const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr + 'T00:00:00')
-  date.setHours(0, 0, 0, 0)
+  const date = parseLocalDate(dateStr)
   
   const today = new Date()
   today.setHours(0, 0, 0, 0)
@@ -47,8 +59,7 @@ const getWeekOfMonth = (date: Date) => {
 }
 
 const getSection = (dateStr: string) => {
-  const date = new Date(dateStr + 'T00:00:00')
-  date.setHours(0, 0, 0, 0)
+  const date = parseLocalDate(dateStr)
   
   const today = new Date()
   today.setHours(0, 0, 0, 0)

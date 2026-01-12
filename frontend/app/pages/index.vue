@@ -17,9 +17,16 @@ const showDeleteModal = ref(false)
 const taskToDelete = ref<{ id: number; statement: string } | null>(null)
 let sortableInstance: Sortable | null = null
 
+const getLocalDateString = (date: Date): string => {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 onMounted(async () => {
   await taskStore.fetchTasks()
-  const today = new Date().toISOString().split('T')[0]!
+  const today = getLocalDateString(new Date())
   taskStore.setSelectedDate(today)
 })
 
@@ -52,7 +59,7 @@ onBeforeUnmount(() => {
 })
 
 const handleCreateTask = async (statement: string) => {
-  const today = new Date().toISOString().split('T')[0]!
+  const today = getLocalDateString(new Date())
   await taskStore.createTask({
     statement,
     task_date: taskStore.selectedDate ?? today
