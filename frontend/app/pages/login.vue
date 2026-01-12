@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { reactive, ref } from 'vue'
-  import { useAuthStore } from '../../stores/auth'
-  import type { LoginPayload } from '../../types'
+  import { useAuthStore } from '@@/stores/auth'
+  import type { LoginPayload } from '@@/types'
   
   definePageMeta({
     layout: 'auth',
@@ -71,9 +71,6 @@
               class="block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition"
               placeholder=""
             >
-            <p v-if="validationErrors.email" class="mt-1 text-sm text-red-600">
-              {{ validationErrors.email[0] }}
-            </p>
           </div>
 
           <div>
@@ -89,9 +86,6 @@
               class="block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition"
               placeholder=""
             >
-            <p v-if="validationErrors.password" class="mt-1 text-sm text-red-600">
-              {{ validationErrors.password[0] }}
-            </p>
           </div>
         </div>
 

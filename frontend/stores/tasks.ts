@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Task, TaskCreatePayload, TaskUpdatePayload, TaskReorderPayload } from '../types'
-import { useApi } from '../composables/useApi'
+import type { Task, TaskCreatePayload, TaskUpdatePayload, TaskReorderPayload } from '@@/types'
+import { useApi } from '@@/composables/useApi'
 
 export const useTaskStore = defineStore('tasks', () => {
   const api = useApi()

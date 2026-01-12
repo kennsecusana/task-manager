@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import Sortable from 'sortablejs'
-import { useAuthStore } from '../../stores/auth'
-import { useTaskStore } from '../../stores/tasks'
-import EmptyState from '../../components/tasks/EmptyState.vue'
-import TaskItem from '../../components/tasks/TaskItem.vue'
-import TaskInput from '../../components/tasks/TaskInput.vue'
-import DeleteDialog from '../../components/ui/DeleteDialog.vue'
+import { useAuthStore } from '@@/stores/auth'
+import { useTaskStore } from '@@/stores/tasks'
+import EmptyState from '@@/components/tasks/EmptyState.vue'
+import TaskItem from '@@/components/tasks/TaskItem.vue'
+import TaskInput from '@@/components/tasks/TaskInput.vue'
+import DeleteDialog from '@@/components/ui/DeleteDialog.vue'
 
 definePageMeta({ middleware: ['auth'] })
 

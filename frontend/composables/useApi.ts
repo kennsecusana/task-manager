@@ -1,5 +1,5 @@
 import { useRuntimeConfig } from 'nuxt/app'
-import type { ApiError } from '../types'
+import type { ApiError } from '@@/types'
 
 export const useApi = () => {
   const config = useRuntimeConfig()

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
 import { Check, Trash2 } from 'lucide-vue-next'
-import { useTaskStore } from '../../stores/tasks'
-import type { Task } from '../../types'
+import { useTaskStore } from '@@/stores/tasks'
+import type { Task } from '@@/types'
 
 interface Props {
   task: Task

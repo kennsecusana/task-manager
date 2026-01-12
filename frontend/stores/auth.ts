@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useRouter } from 'nuxt/app'
-import type { User, LoginPayload } from '../types'
-import { useApi } from '../composables/useApi'
+import type { User, LoginPayload } from '@@/types'
+import { useApi } from '@@/composables/useApi'
 
 export const useAuthStore = defineStore('auth', () => {
   const api = useApi()

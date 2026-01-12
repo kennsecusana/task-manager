@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { Search, X } from 'lucide-vue-next'
-import { useAuthStore } from '../../stores/auth'
-import { useTaskStore } from '../../stores/tasks'
+import { useAuthStore } from '@@/stores/auth'
+import { useTaskStore } from '@@/stores/tasks'
 
 const authStore = useAuthStore()
 const taskStore = useTaskStore()
